@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Tree;
+use App\Models\TreeUser;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,9 +17,18 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        TreeUser::create([
+            'name' => 'test1',
+        ]);
+
+        Tree::create([
+            'parent_id' => null,
+            'master_id' => '2',
+        ]);
+
+        Tree::create([
+            'parent_id' => '1',
+            'master_id' => '3',
         ]);
     }
 }
